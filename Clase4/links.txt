@@ -1,0 +1,10 @@
+Diagramas UML
+https://app.diagrams.net/
+https://staruml.io/
+
+Diagramas de clases:
+https://ingenieriaensoftwarenathalyalava.wordpress.com/2015/07/01/148/#:~:text=Las%20relaciones%20existentes%20entre%20las,en%20el%20momento%20de%20ejecuci%C3%B3n.
+https://www.seas.es/blog/informatica/agregacion-vs-composicion-en-diagramas-de-clases-uml/
+
+Ejemplos Enunciados:
+https://silo.tips/download/enunciados-de-ingenieria-del-software
