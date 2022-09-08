@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 
-"""
-Clase abstracta de Empleado
+"""Clase abstracta de Empleado
 """
 class Empleado(ABC):
 
@@ -12,6 +11,16 @@ class Empleado(ABC):
     def __str__(self):
         return f"Empleado: {self.__apellido}"
 
+    #GETTER
+    @property
+    def apellido(self):
+        return self.__apellido
+
+    #SETTER
+    @apellido.setter
+    def apellido(self,nuevo_apellido):
+        self.__apellido = nuevo_apellido
+        
     @property
     def nombre_completo(self):
         return f"{self.__nombre} {self.__apellido}"
@@ -20,6 +29,9 @@ class Empleado(ABC):
     @abstractmethod
     def salario(self):
         pass
+
+    def metodo_uno(self):
+        return 10
 
 #empleado_uno = Empleado('fede','liquin')
 
@@ -73,8 +85,49 @@ class Nomina:
 nomina_empleados = Nomina()
 
 empleado_uno = EmpleadoFullTime('Mario','Lobo',90000)
+# print(empleado_uno.apellido)
+#USO DEL SETTER
+empleado_uno.apellido = 'pepito'
+#USO DE GETTER
+print(empleado_uno.apellido)
 nomina_empleados.agregar_empleado(empleado_uno)
 nomina_empleados.agregar_empleado(EmpleadoPorHora('Gustavo','Balvorin',40,1500))
 nomina_empleados.agregar_empleado(33)
+# nomina_empleados.print()
+# print(nomina_empleados._Nomina__lista_empleados[2])
+
+
+class Estudiante():
+
+    def __init__(self,legajo):
+        self.__legajo = legajo
+
+    @property
+    def legajo(self):
+        return self.__legajo
+    
+    def metodo_uno(self):
+        return 100000
+    
+
+class EstudiantePasante(Empleado,Estudiante):
+
+    def __init__(self, nombre, apellido,legajo):
+        Empleado.__init__(self,nombre, apellido)
+        Estudiante.__init__(self,legajo)
+
+    
+    @property
+    def salario(self):
+        return 0
+    
+    def __str__(self):
+        return f"{self.nombre_completo}, Legajo: {self.legajo}"
+
+
+estudiante_uno = EstudiantePasante('Pablo','Perez','IF-5564')
+print(estudiante_uno.metodo_uno())
+print(estudiante_uno)
+
+nomina_empleados.agregar_empleado(estudiante_uno)
 nomina_empleados.print()
-print(nomina_empleados._Nomina__lista_empleados[2])
